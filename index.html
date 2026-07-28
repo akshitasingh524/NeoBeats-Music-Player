@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>NeoBeats | Premium Music Player</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+
+    <div id="loader">
+
+        <div class="loader-logo">
+
+            <i class="fa-solid fa-headphones"></i>
+
+            <h1>NeoBeats</h1>
+
+        </div>
+
+    </div>
+
+    <!-- Floating Background -->
+
+    <div class="background">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <!-- Toast -->
+
+    <div id="toast"></div>
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-music"></i>
+
+                <h2>NeoBeats</h2>
+
+            </div>
+
+            <nav>
+
+                <ul>
+
+                    <li class="active" data-view="home">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        Home
+
+                    </li>
+
+                    <li data-view="favorites">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        Favorites
+
+                    </li>
+
+                    <li data-view="recent">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+
+                        Recently Played
+
+                    </li>
+
+                    <li data-view="playlist">
+
+                        <i class="fa-solid fa-list"></i>
+
+                        Playlist
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Section -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <header>
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchSong"
+                        placeholder="Search songs...">
+
+                </div>
+
+                <div class="header-right">
+
+                    <div id="clock"></div>
+
+                    <button id="themeBtn">
+
+                        <i class="fa-solid fa-moon"></i>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- Player Card -->
+
+            <section class="player-card">
+
+                <div class="album">
+
+                    <img
+                        id="cover"
+                        src="asserts/default-cover.jpg"
+                        alt="Album Cover">
+
+                </div>
+
+                <div class="song-details">
+
+                    <h2 id="title">
+
+                        Select a Song
+
+                    </h2>
+
+                    <p id="artist">
+
+                        NeoBeats Music
+
+                    </p>
+
+                </div>
+
+                <!-- Progress -->
+
+                <div class="progress-area">
+
+                    <span id="currentTime">0:00</span>
+
+                    <input
+                        type="range"
+                        id="progress"
+                        value="0">
+
+                    <span id="duration">0:00</span>
+
+                </div>
+
+                <!-- Controls -->
+
+                <div class="controls">
+
+                    <button id="shuffle">
+
+                        <i class="fa-solid fa-shuffle"></i>
+
+                    </button>
+
+                    <button id="prev">
+
+                        <i class="fa-solid fa-backward"></i>
+
+                    </button>
+
+                    <button id="play">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </button>
+
+                    <button id="next">
+
+                        <i class="fa-solid fa-forward"></i>
+
+                    </button>
+
+                    <button id="repeat">
+
+                        <i class="fa-solid fa-repeat"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- Volume -->
+
+                <div class="volume">
+
+                    <i class="fa-solid fa-volume-high"></i>
+
+                    <input
+                        type="range"
+                        id="volume"
+                        min="0"
+                        max="100"
+                        value="80">
+
+                </div>
+
+            </section>
+                        <!-- Playlist Section -->
+            <section class="playlist-section">
+
+                <div class="section-title">
+                    <h2>Playlist</h2>
+                    <span>5 Songs</span>
+                </div>
+
+                <div id="playlist"></div>
+
+            </section>
+
+        </main>
+
+        <!-- Right Panel -->
+
+        <aside class="right-panel">
+
+            <div class="equalizer-card">
+
+                <h3>Now Playing</h3>
+
+                <div class="equalizer">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+            <div class="extra-buttons">
+
+                <button id="favoriteSong">
+                    <i class="fa-solid fa-heart"></i>
+                    Favorite
+                </button>
+
+                <button id="copySong">
+                    <i class="fa-solid fa-copy"></i>
+                    Copy Name
+                </button>
+
+                <button id="downloadSong">
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                </button>
+
+            </div>
+
+            <div class="recent-card">
+
+                <h3>Recently Played</h3>
+
+                <ul id="recentList">
+
+                    <li>No recent songs</li>
+
+                </ul>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Mini Player -->
+
+    <div class="mini-player">
+
+        <img src="asserts/default-cover.jpg"
+            id="miniCover">
+
+        <div class="mini-info">
+
+            <h4 id="miniTitle">
+                No Song Selected
+            </h4>
+
+            <p id="miniArtist">
+                NeoBeats
+            </p>
+
+        </div>
+
+        <button id="miniPlay">
+
+            <i class="fa-solid fa-play"></i>
+
+        </button>
+
+    </div>
+
+    <!-- Hidden Audio -->
+
+    <audio id="audio"></audio>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+
+            Built with ❤️ using HTML, CSS & JavaScript
+
+        </p>
+
+        <p>
+
+            © 2026 NeoBeats Premium Music Player
+
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
